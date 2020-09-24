@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Certification Alexandre</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <form action="/" method="post">
+          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+          <input type="submit" class="ghost-button" value="Get Weather">
+        </form>
+        <% if( locals.weather !== null ) { %>
+            <p><%= locals.weather %></p>
+        <% } %>
+        
+        <% if( locals.error !== null ){ %>
+            <p><%= locals.error %></p>
+          <% } %>
+
+      </fieldset>
+    </div>
+  </body>
+</html>
