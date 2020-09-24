@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+
+<div class="container">
+    <h3>API Externa da Internet (Weather)</h3>
+  <fieldset>
+    <form action="/apiext" method="post">
+      <input name="city" type="text" class="form-control" placeholder="Enter a City" required>
+      <br>
+      <input type="submit" class="btn btn-secondary" value="Get Weather">
+    </form>
+    <% if( locals.weather !== null ) { %>
+        <p><%= locals.weather %></p>
+    <% } %>
+    
+    <% if( locals.error !== null ){ %>
+        <p><%= locals.error %></p>
+      <% } %>
+
+  </fieldset>
+</div>
+
+</main>
+
+</body>
+</html>
