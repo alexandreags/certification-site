@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+
+<div class="container">
+    
+    <h3>Teste de stress da Instancia</h3>
+    
+    <fieldset>
+        <form action="/stress" method="post">
+          
+            <div class="select">
+                
+                <label for="tipo">Tipo de stress:</label>
+                <select name="tipo" id="tipo">
+                  <option value="cpu">CPU</option>
+                  <option value="memory">Memoria</option>
+                </select>
+                <br>
+
+                <label for="lifespan">"Duração do Stress em segundos"</label>
+                <input name="lifespan" type="number" class="form-control"  required>
+                <br>
+                <label for="lifespan">"Intervalo entre interacoes em Segundos"</label>
+                <input name="deathspan" type="number" class="form-control" required>
+                <br>
+                <label for="lifespan">"Ciclos"</label>
+                <input name="iterations" type="number" class="form-control" required>
+                <br>
+                
+                <div class="alert alert-dark" role="alert">
+                Cada Ciclo é calculado pela duracao + intervalo
+                </div>
+
+                <br><br>
+                  
+            </div>
+            
+
+          <input type="submit" class="btn btn-secondary" value="Executar">
+        </form>
+      
+      </fieldset>
+ 
+</div>
+
+</main>
+
+</body>
+</html>

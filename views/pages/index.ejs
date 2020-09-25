@@ -11,8 +11,46 @@
 
 <main>
 
-    <%- include('../pages/indexcontent'); %>
-
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="jumbotron">
+                <h1>Dados da instancia</h1>
+                <p>Colocar os dados da instancia executando o codigo.</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well">
+                <h3>Instancia</h3>
+                <% if( locals.ec2hostname !== null ) { %>
+                    <p>Hostaneme: <%= locals.ec2hostaname %></p>
+                <% } else {%>
+                     <p> Hostname: Local</p>
+                <% } %>
+                
+                <% if( locals.instanceID !== null ) { %>
+                    <p>ID: <%= locals.instanceID %></p>
+                <% } else {%>
+                     <p> ID: Local</p>
+                <% } %>
+                
+                <% if( locals.instanceID !== null ) { %>
+                    <p>Region: <%= locals.instanceID %></p>
+                <% } else {%>
+                     <p> Region: Local</p>
+                <% } %>
+                
+                <% if( locals.ec2pubip !== null ) { %>
+                    <p>Public IP: <%= locals.ec2pubip %></p>
+                <% } else {%>
+                     <p> Public IP: Local</p>
+                <% } %>
+                
+                
+                
+    
+            </div>
+        </div>
+    </div>
 </main>
 
 </body>

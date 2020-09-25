@@ -3,7 +3,7 @@
 require(__dirname+"/processor-usage.js").startWatching();
 
 var shouldRun = true;
-var desiredLoadFactor = .5;
+var desiredLoadFactor = .9;
 
 function blockCpuFor(ms) {
 	var now = new Date().getTime();
