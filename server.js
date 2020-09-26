@@ -30,10 +30,10 @@ Q.all([
     console.log("Public IPv4: " + publicIPv4);
     console.log("Instance ID: " + instanceID)
     
-    let amiid= amiID;
-    let ec2hostname = hostname;
-    let ec2pubhostname = publicHostname;
-    let ec2pubip = publicIPv4;
+    //let amiid= amiID;
+    //let ec2hostname = hostname;
+    //let ec2pubhostname = publicHostname;
+    //let ec2pubip = publicIPv4;
 
    // res.render('pages/index', {amiID:amiid, ec2hostname:ec2hostname,ec2pubhostname:ec2pubhostname, ec2pubip:ec2pubip});
 })
@@ -43,12 +43,13 @@ Q.all([
 
 });
     
-    if( typeof ec2hostname !== 'undefined' && ec2hostname){
-
-        res.render('pages/index', {amiID:amiid, ec2hostname:ec2hostname,ec2pubhostname:ec2pubhostname, ec2pubip:ec2pubip});
+    if( typeof hostname !== 'undefined' && hostname){
+        console.log('identifiquei o hostname, vou renderizar.')
+        res.render('pages/index', {amiID:amiID, ec2hostname:hostname,ec2pubhostname:publicHostname, ec2pubip:publicIPv4, instanceID:instanceID});
         
     }else{
-
+        
+        console.log('nao identifiquei o hostname, vou renderizar.')
         res.render('pages/index', {amiID:null, ec2hostname:null,ec2pubhostname:null, ec2pubip:null, instanceID:null});
 
     };
