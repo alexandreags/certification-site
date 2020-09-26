@@ -7,6 +7,13 @@ const port = 80;
 const NodeHog = require('nodehog');
 var Q = require('q');
 
+let ec2amiid;
+let ec2hostname;
+let ec2pubhostname;
+let ec2pubip;
+let ec2instanceid;
+let ec2region;
+
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -21,19 +28,23 @@ Q.all([
         metadata.getMetadataForInstance('hostname'),
         metadata.getMetadataForInstance('public-hostname'),
         metadata.getMetadataForInstance('public-ipv4'),
-        metadata.getMetadataForInstance('instance-id')
+        metadata.getMetadataForInstance('instance-id'),
+        metadata.getMetadataForInstance('region')
     ])
-.spread(function(amiID, hostname, publicHostname, publicIPv4, instanceID) {
+.spread(function(amiID, hostname, publicHostname, publicIPv4, instanceID, region) {
     console.log("AMI-ID: " + amiID);
     console.log("Hostname: " + hostname);
     console.log("Public Hostname: " + publicHostname);
     console.log("Public IPv4: " + publicIPv4);
     console.log("Instance ID: " + instanceID)
+    console.log("Region: " + region)
     
-    //let amiid= amiID;
-    //let ec2hostname = hostname;
-    //let ec2pubhostname = publicHostname;
-    //let ec2pubip = publicIPv4;
+    ec2amiid= amiID;
+    ec2hostname = hostname;
+    ec2pubhostname = publicHostname;
+    ec2pubip = publicIPv4;
+    ec2region = region;
+    ec2instanceid = instanceID;
 
    // res.render('pages/index', {amiID:amiid, ec2hostname:ec2hostname,ec2pubhostname:ec2pubhostname, ec2pubip:ec2pubip});
 })
@@ -43,14 +54,14 @@ Q.all([
 
 });
     
-    if( typeof hostname !== 'undefined' && hostname){
+    if(hostname){
         console.log('identifiquei o hostname, vou renderizar.')
-        res.render('pages/index', {amiID:amiID, ec2hostname:hostname,ec2pubhostname:publicHostname, ec2pubip:publicIPv4, instanceID:instanceID});
+        res.render('pages/index', {amiID:ec2amiid, ec2hostname:ec2hostname,ec2pubhostname:ec2pubhostname, ec2pubip:ec2pubip, ec2instanceid:ec2instanceid, ec2region:ec2region});
         
     }else{
         
         console.log('nao identifiquei o hostname, vou renderizar.')
-        res.render('pages/index', {amiID:null, ec2hostname:null,ec2pubhostname:null, ec2pubip:null, instanceID:null});
+        res.render('pages/index', {amiID:null, ec2hostname:null,ec2pubhostname:null, ec2pubip:null, ec2instanceid:null, ec2region:null});
 
     };
 })
