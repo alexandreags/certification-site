@@ -54,7 +54,7 @@ Q.all([
 
 });
     
-    if(hostname){
+    if(typeof ec2hostname !== null){
         console.log('identifiquei o hostname, vou renderizar.')
         res.render('pages/index', {amiID:ec2amiid, ec2hostname:ec2hostname,ec2pubhostname:ec2pubhostname, ec2pubip:ec2pubip, ec2instanceid:ec2instanceid, ec2region:ec2region});
         
