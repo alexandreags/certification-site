@@ -29,21 +29,21 @@ Q.all([
         metadata.getMetadataForInstance('public-hostname'),
         metadata.getMetadataForInstance('public-ipv4'),
         metadata.getMetadataForInstance('instance-id'),
-        metadata.getMetadataForInstance('region')
+        //metadata.getMetadataForInstance('region')
     ])
-.spread(function(amiID, hostname, publicHostname, publicIPv4, instanceID, region) {
+.spread(function(amiID, hostname, publicHostname, publicIPv4, instanceID /*,region*/) {
     console.log("AMI-ID: " + amiID);
     console.log("Hostname: " + hostname);
     console.log("Public Hostname: " + publicHostname);
     console.log("Public IPv4: " + publicIPv4);
     console.log("Instance ID: " + instanceID)
-    console.log("Region: " + region)
+    //console.log("Region: " + region)
     
     ec2amiid= amiID;
     ec2hostname = hostname;
     ec2pubhostname = publicHostname;
     ec2pubip = publicIPv4;
-    ec2region = region;
+    //ec2region = region;
     ec2instanceid = instanceID;
 
    // res.render('pages/index', {amiID:amiid, ec2hostname:ec2hostname,ec2pubhostname:ec2pubhostname, ec2pubip:ec2pubip});
@@ -56,12 +56,12 @@ Q.all([
     
     if(typeof ec2hostname !== null){
         console.log('identifiquei o hostname, vou renderizar.')
-        res.render('pages/index', {amiID:ec2amiid, ec2hostname:ec2hostname,ec2pubhostname:ec2pubhostname, ec2pubip:ec2pubip, ec2instanceid:ec2instanceid, ec2region:ec2region});
+        res.render('pages/index', {amiID:ec2amiid, ec2hostname:ec2hostname,ec2pubhostname:ec2pubhostname, ec2pubip:ec2pubip, ec2instanceid:ec2instanceid/*, ec2region:ec2region*/});
         
     }else{
         
         console.log('nao identifiquei o hostname, vou renderizar.')
-        res.render('pages/index', {amiID:null, ec2hostname:null,ec2pubhostname:null, ec2pubip:null, ec2instanceid:null, ec2region:null});
+        res.render('pages/index', {amiID:null, ec2hostname:null,ec2pubhostname:null, ec2pubip:null, ec2instanceid:null/*, ec2region:null*/});
 
     };
 })
