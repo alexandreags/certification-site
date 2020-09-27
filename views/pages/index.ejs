@@ -22,24 +22,24 @@
             <div class="well">
                 <h3>Instancia</h3>
                 <% if( locals.ec2hostname !== null ) { %>
-                    <p>Hostaneme: <%= locals.ec2hostaname %></p>
+                    <p>Hostname: <%= locals.ec2hostaname %></p>
                 <% } else {%>
                      <p> Hostname: Local</p>
                 <% } %>
                 
-                <% if( locals.instanceID !== null ) { %>
+                <% if( locals.ec2hostaname !== null ) { %>
                     <p>ID: <%= locals.instanceID %></p>
                 <% } else {%>
                      <p> ID: Local</p>
                 <% } %>
                 
-                <% if( locals.instanceID !== null ) { %>
+                <% if( locals.ec2hostaname !== null ) { %>
                     <p>Region: <%= locals.instanceID %></p>
                 <% } else {%>
                      <p> Region: Local</p>
                 <% } %>
                 
-                <% if( locals.ec2pubip !== null ) { %>
+                <% if( locals.ec2hostaname !== null ) { %>
                     <p>Public IP: <%= locals.ec2pubip %></p>
                 <% } else {%>
                      <p> Public IP: Local</p>
