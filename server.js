@@ -56,12 +56,12 @@ Q.all([
     
     if(typeof ec2hostname !== null){
         console.log('identifiquei o hostname, vou renderizar.')
-        res.render('pages/index', {amiID:ec2amiid, ec2hostname:ec2hostname,ec2pubhostname:ec2pubhostname, ec2pubip:ec2pubip, ec2instanceid:ec2instanceid/*, ec2region:ec2region*/});
+        res.render('pages/index', {stramiid:ec2amiid, strec2hostname:ec2hostname,strec2pubhostname:ec2pubhostname, strec2pubip:ec2pubip, strec2instanceid:ec2instanceid/*, strec2region:ec2region*/});
         
     }else{
         
         console.log('nao identifiquei o hostname, vou renderizar.')
-        res.render('pages/index', {amiID:null, ec2hostname:null,ec2pubhostname:null, ec2pubip:null, ec2instanceid:null/*, ec2region:null*/});
+        res.render('pages/index', {stramiID:null, strec2hostname:null,strec2pubhostname:null, strec2pubip:null, strec2instanceid:null/*, strec2region:null*/});
 
     };
 })

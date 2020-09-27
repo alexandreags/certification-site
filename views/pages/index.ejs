@@ -21,30 +21,35 @@
         <div class="col-sm-4">
             <div class="well">
                 <h3>Instancia</h3>
-                <% if( locals.ec2hostname !== null ) { %>
-                    <p>Hostname: <%= locals.ec2hostaname %></p>
+                <% if( locals.strec2hostname !== null ) { %>
+                    <p>Hostname: <%= locals.strec2hostaname %></p>
                 <% } else {%>
                      <p> Hostname: Local</p>
                 <% } %>
                 
-                <% if( locals.ec2hostaname !== null ) { %>
-                    <p>ID: <%= locals.instanceID %></p>
+                <% if( locals.strec2hostaname !== null ) { %>
+                    <p>ID: <%= locals.strinstanceID %></p>
                 <% } else {%>
                      <p> ID: Local</p>
                 <% } %>
                 
-                <% if( locals.ec2hostaname !== null ) { %>
-                    <p>Region: <%= locals.instanceID %></p>
+                <% if( locals.strec2hostaname !== null ) { %>
+                    <p>Region: <%= locals.strinstanceID %></p>
                 <% } else {%>
                      <p> Region: Local</p>
                 <% } %>
                 
-                <% if( locals.ec2hostaname !== null ) { %>
-                    <p>Public IP: <%= locals.ec2pubip %></p>
+                <% if( locals.strec2hostaname !== null ) { %>
+                    <p>Public IP: <%= locals.strec2pubip %></p>
                 <% } else {%>
                      <p> Public IP: Local</p>
                 <% } %>
                 
+                <% if( locals.strec2hostaname !== null ) { %>
+                    <p>AMI: <%= locals.stramiid %></p>
+                <% } else {%>
+                     <p> AMI: Local</p>
+                <% } %>
                 
                 
     
